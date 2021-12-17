@@ -1,0 +1,10 @@
+.home-page{
+  width: 100%;
+  padding: 3%;
+  .container-home{
+    display: flex;
+    justify-content: normal;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}

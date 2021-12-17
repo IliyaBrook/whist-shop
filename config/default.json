@@ -1,0 +1,7 @@
+{
+    "port": 5000,
+    "mongoUri": "mongodb+srv://whist-shop:whist-shop12345678@cluster0.zrlzh.mongodb.net/whist-shop?retryWrites=true&w=majority",
+    "baseUrl": "http://localhost:5000/"
+}
+
+

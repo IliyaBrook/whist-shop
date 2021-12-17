@@ -1,0 +1,38 @@
+.dropDown-cart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 11rem;
+  .cart-elem-modal{
+    height: 40%;
+    div{
+      display: flex;
+      padding: 0.2rem;
+      span{
+        color: black;
+      }
+      span:nth-child(1) {
+        width: 50%;
+      }
+      span:nth-child(2) {
+        width: 50%;
+      }
+    }
+  }
+  .total{
+    margin-top: 5rem;
+    display: flex;
+    align-items: flex-end;
+    height: 60%;
+    justify-content: flex-end;
+  }
+  .pay-button-wrapper{
+    display: flex;
+    justify-content: center;
+    .pay-button{
+      color: white;
+      margin-top: 2rem;
+      width: 70%;
+    }
+  }
+}

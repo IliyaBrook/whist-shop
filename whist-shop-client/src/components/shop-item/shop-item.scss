@@ -1,0 +1,49 @@
+.item{
+  margin: 1rem 0 1rem 1rem;
+  background-color: rgba(169, 187, 138, 0.7);
+  width: 12rem;
+  height: fit-content;
+  border-radius: 5px;
+  .header-image{
+    display: flex;
+    justify-content: center;
+    img{
+      border-radius: 5px;
+      margin-top: 1rem;
+      width: 70%;
+      height: 50%;
+    }
+  }
+  .item-content{
+    display: flex;
+    align-items: center;
+    height: 65%;
+    ul{
+      li{
+        list-style: none;
+        margin-top: 1rem;
+        overflow-wrap: anywhere;
+        padding-right: 2rem;
+        @for $i from 0 through 1 {
+          span:nth-child(#{$i}){
+            font-weight: 600;
+          }
+        }
+        span:nth-child(2){
+          margin-left: 0.3rem;
+        }
+        p{
+          margin-top: 0.4rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .buy-btn-wrapper{
+    display: flex;
+    justify-content: center;
+    Button{
+      margin: 5px 0 10px 0;
+    }
+  }
+}
