@@ -5,9 +5,10 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const app = express()
 const server = require('http').createServer(app)
+const cors = require('cors')
 
-
-
+app.use(cors())
+app.options('*',cors())
 
 app.use(bodyParser.json({extended: true}))
 
@@ -28,7 +29,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-//asdas
 async function start() {
     try {
         await mongoose.connect(process.env.MONGODB_URI || config.get('mongoUri'))

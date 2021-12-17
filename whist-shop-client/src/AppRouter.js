@@ -11,7 +11,6 @@ function AppRouter() {
     return (
         <Router >
             <NavBar/>
-            <Home/>
             <Switch>
                 <Route exact path="/home" component={Home}/>
                 <Route exact path="/statistics" component={StatisticsPage}/>
