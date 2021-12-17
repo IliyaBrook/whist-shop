@@ -10,7 +10,7 @@
     "heroku-postbuild": "npm run install-client && npm run build",
     "server": "nodemon app.js",
     "client": "cd ./whist-shop-client && npm start",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix whist-shop-client\""
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"cd whist-shop-client && npm run start\""
   },
   "engines": {
     "node": "16.6.1"
