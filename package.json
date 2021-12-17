@@ -30,7 +30,6 @@
     "nodemon": "^2.0.15"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7",
     "webpack": "^5.62.1",
     "webpack-cli": "^4.8.0"
   }
