@@ -10,4 +10,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "whist-shop"
           heroku_email: "iliyabrook1987@gmail.com"
-#s
