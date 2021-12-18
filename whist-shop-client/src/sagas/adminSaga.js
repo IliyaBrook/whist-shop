@@ -1,18 +1,31 @@
 import {all, call, put, takeEvery } from "redux-saga/effects";
 import {useRequestSaga} from "./saga-hooks/useRequestSaga";
-import {ADD_PRODUCT, REQUEST_ADD_PRODUCT} from "../redux/reducers/productsReducer/productsReducerTypes";
+import {
+    ADD_PRODUCT,
+    REQUEST_ADD_PRODUCT,
+    REQUEST_EDIT_PRODUCT
+} from "../redux/reducers/productsReducer/productsReducerTypes";
 
 export function* adminSaga () {
     yield all([
-        call(addNewProductWatcher)
+        call(addNewProductWatcher),
+        call(editProductWatcher),
     ])
 }
 
-export function* addNewProductWatcher () {
+function* editProductWatcher () {
+    return  yield takeEvery(REQUEST_EDIT_PRODUCT, editProductWorker)
+}
+
+function* editProductWorker({payload}) {
+    console.log(payload)
+}
+
+function* addNewProductWatcher () {
     return  yield takeEvery(REQUEST_ADD_PRODUCT, addNewProductWorker)
 }
 
-export function* addNewProductWorker ({payload}) {
+function* addNewProductWorker ({payload}) {
     try {
         console.log('payload', payload)
         const response = yield call(useRequestSaga, {
@@ -25,7 +38,6 @@ export function* addNewProductWorker ({payload}) {
         }
         yield put({type:ADD_PRODUCT, payload: response.data.product})
     }catch (error){
-        console.log('error')
         console.log(error)
     }
 }

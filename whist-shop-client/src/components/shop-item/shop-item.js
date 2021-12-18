@@ -3,26 +3,28 @@ import './shop-item.scss';
 import {Button} from "react-bootstrap";
 
 
-const ShopItem = ({title, description, price, img }) => {
+const ShopItem = (props) => {
     return (
         <div>
             <div className="item">
                 <div className="header-image">
-                    <img src={img} alt="productImage"/>
+                    <img src={props?.img} alt="productImage" onError={
+                        (e) => e.target = null
+                    }/>
                 </div>
                 <div className="item-content">
                     <ul>
                         <li>
                             <span>Title:</span>
-                            <p>{title}</p>
+                            <p>{props?.title}</p>
                         </li>
                         <li>
                             <span>Description:</span>
-                            <p>{description}</p>
+                            <p>{props?.description}</p>
                         </li>
                         <li>
                             <span>Price:</span>
-                            <span>{price}</span>
+                            <span>{props?.price}</span>
                         </li>
                     </ul>
                 </div>

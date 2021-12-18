@@ -1,0 +1,19 @@
+.itemProductDisabled{
+  width: -webkit-fill-available;
+  text-align: center;
+  color: black!important;
+  &:disabled{
+    background-color: white;
+    border: none;
+    color: black!important;
+    &::placeholder{
+      color: black;
+    }
+  }
+  &::placeholder{
+    color: black;
+  }
+}
+.itemProductActive{
+  text-align: center;
+}

@@ -1,12 +1,16 @@
 import React from 'react';
 import './admin-page.scss';
-import ModalAddItem from "./modal-add-item/modal-add-item";
+import ModalAddProduct from "./modal-add-product/modal-add-product";
+import AdminProducts from "./adminProducts/admin-products";
 
 const AdminPage = () => {
     return (
         <div className="admin-content-wrapper">
             <div className="add-item-wrapper">
-                <ModalAddItem/>
+                <ModalAddProduct/>
+            </div>
+            <div className="admin-products-wrapper">
+                <AdminProducts/>
             </div>
         </div>
     );

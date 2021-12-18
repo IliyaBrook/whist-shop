@@ -1,0 +1,22 @@
+.adminProducts {
+  margin-top: 2rem;
+
+  .topTr {
+    font-weight: bold;
+  }
+  tbody, td, tfoot, th, thead, tr {
+    width: 32vw;
+    height: 6vh;
+    border: 1px solid black;
+    text-align: center;
+  }
+  .adminProductItem {
+    td {
+      height: 10vh;
+      .adminProductsBtnsWrapper{
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+  }
+}

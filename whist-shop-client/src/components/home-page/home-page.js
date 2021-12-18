@@ -8,14 +8,14 @@ const HomePage = () => {
     const { products } = useSelector(state => state.productsReducer)
 
     const RenderProducts = () => {
-        return products.map(useCallback((product) => {
+        return products.map(useCallback(product => {
             if (products.length !== 0) {
                 return <ShopItem
-                    key={product._id}
-                    img={product.imageUrl}
-                    title={product.title}
-                    description={product.description}
-                    price={`${product.price}$`}
+                    key={product?._id}
+                    img={product?.imageUrl}
+                    title={product?.title}
+                    description={product?.description}
+                    price={`${product?.price}$`}
                 />
             }
         },[products]))

@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import './modal-add-item.scss'
+import './modal-add-product.scss'
 import {Button, Col, Form, Modal, Row} from "react-bootstrap";
 import {useDispatch} from "react-redux";
 import {REQUEST_ADD_PRODUCT} from "../../../redux/reducers/productsReducer/productsReducerTypes";
 
-const ModalAddItem = () => {
+const ModalAddProduct = () => {
     const dispatch = useDispatch()
     const [show, setShow] = useState(false);
     const [formValue, setFormValue] = useState({})
@@ -106,4 +106,4 @@ const ModalAddItem = () => {
     );
 };
 
-export default ModalAddItem;
+export default ModalAddProduct;
