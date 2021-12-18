@@ -9,22 +9,4 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "whist-shop"
-          heroku_email: "iliyabrook1987@gmail.com"
 
-
-
-#     steps:
-#       - name: deploy heroku master
-#       - run: git push heroku master
-#       - uses: akhileshns/heroku-deploy@v3.12.12
-#         with:
-#           heroku_api_key: ${{asd123121cf@@#$%23f23}}
-#           heroku_app_name: "whist-shop"
-#           heroku_email: "iliyabrook1987@gmail.com"
-#           uses: actions/checkout@v2
-
-
-
-
-#     - run: git push heroku master
-#     - name: deploy heroku master
