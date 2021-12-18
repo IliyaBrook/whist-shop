@@ -1,7 +1,7 @@
 name: Whist shop pipelines
 on: [push]
 jobs:
-  Heroku-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
