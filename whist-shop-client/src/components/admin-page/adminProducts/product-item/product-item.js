@@ -3,27 +3,31 @@ import {Button, Form} from "react-bootstrap";
 import './product-item.scss'
 import {InputTitle, InputPrice } from './inputs'
 import {useDispatch} from "react-redux";
-import {REQUEST_EDIT_PRODUCT} from "../../../../redux/reducers/productsReducer/productsReducerTypes";
+import {
+    REQUEST_EDIT_PRODUCT,
+    REQUEST_REMOVE_PRODUCT
+} from "../../../../redux/reducers/productsReducer/productsReducerTypes";
 
 const ProductItem = ({props}) => {
     const dispatch = useDispatch()
 
-    const {title,price,id} = props
-
+    const { title,price,id } = props
     const [editButtonState, setEditButtonState ] = useState(false)
     const [productValues, setProductValues ] = useState({
         title:'',
         price:'',
         id:''
     })
+
     const handleEditProduct = () => {
         setEditButtonState(true)
     }
     const submitHandler = () => {
         setProductValues(prevState => ({
-            ...prevState, id, price: `${prevState.price}$`
+            ...prevState,price: productValues.price,
+            title: productValues.title, id
         }))
-        dispatch({type:REQUEST_EDIT_PRODUCT, payload: productValues})
+        dispatch({type:REQUEST_EDIT_PRODUCT, payload: {...productValues, id, index: props.index}})
         setEditButtonState(false)
     }
     const handleSubmitProduct = () => {
@@ -35,15 +39,15 @@ const ProductItem = ({props}) => {
         }
     }
 
-
-    const handleDeleteProduct = () => {
-        console.log('handleDeleteProduct')
-    }
     const handleInputs = (event) => {
         setProductValues(prevState => ({
             ...prevState,
-            [event.target.name]:event.target.value,
+            [event.target.name]:event.target.value
         }))
+    }
+
+    const handleRemoveProduct = () => {
+        dispatch({type:REQUEST_REMOVE_PRODUCT, payload: id })
     }
 
     return (
@@ -91,7 +95,7 @@ const ProductItem = ({props}) => {
                                 >Submit</Button>
                         }
 
-                        <Button variant="danger" onClick={handleDeleteProduct}>
+                        <Button variant="danger" onClick={handleRemoveProduct}>
                             Delete
                         </Button>
                     </div>

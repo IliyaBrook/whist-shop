@@ -1,32 +1,28 @@
-import {
-    ADD_PRODUCT,
-    EDIT_PRODUCT,
-    GET_PRODUCTS_ON_ENTER_PAGE,
-    REMOVE_PRODUCT,
-    REQUEST_EDIT_PRODUCT
-} from "./productsReducerTypes";
+import {ADD_PRODUCT, EDIT_PRODUCT, GET_PRODUCTS_ON_ENTER_PAGE, REMOVE_PRODUCT} from "./productsReducerTypes";
+import { createReducer } from '@reduxjs/toolkit'
+
 
 const productsReducerInit = {
-    count:0,
-    products:[]
+    products: []
 }
-export const productsReducer = (state = productsReducerInit, action) => {
-    switch (action.type) {
-        case ADD_PRODUCT:
-            return {
-                ...state, products: [...state.products, action.payload],
-                count: state.count + 1
-            }
-        case REMOVE_PRODUCT:
-            return state
-        case EDIT_PRODUCT:
-            return state
-        case GET_PRODUCTS_ON_ENTER_PAGE:
-            return {
-                ...state, products: [...state.products,...action.payload],
-                count:action.payload.length
-            }
-        default:
-            return state
-    }
-}
+
+export  const productsReducer = createReducer(productsReducerInit, (builder) => {
+    builder.addCase(GET_PRODUCTS_ON_ENTER_PAGE, (state, action) => {
+        state.products.push(...action.payload)
+    })
+        .addCase(ADD_PRODUCT, (state, action) => {
+            state.products.push(action.payload)
+        })
+        .addCase(REMOVE_PRODUCT, (state, action) => {
+            const index = state.products.findIndex(e => e._id === action.payload.id)
+            state.products.splice(index, 1)
+        })
+        .addCase(EDIT_PRODUCT, (state, action) => {
+            const removeElem = state.products.filter(p => p._id === action.payload.id)
+            state.products.splice(action.payload.index, 1,{
+                ...removeElem[0],
+                price: action.payload.price || removeElem[0].price,
+                title: action.payload.title || removeElem[0].title
+            })
+        })
+})

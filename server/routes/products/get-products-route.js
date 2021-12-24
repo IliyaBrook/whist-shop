@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const Product = require('../models/ShopProduct')
+const Product = require('../../models/ShopProduct')
 const router = Router()
 
 module.exports = router.get('/getProducts', async (req, res) => {

@@ -1,14 +1,17 @@
 import React from 'react';
 import './shop-item.scss';
 import {Button} from "react-bootstrap";
+import {useDispatch} from "react-redux";
+import {REQUEST_ADD_CART_PRODUCT} from "../../redux/reducers/cartReducer/cartReducerTypes";
 
 
 const ShopItem = (props) => {
+    const dispatch = useDispatch()
     return (
         <div>
             <div className="item">
                 <div className="header-image">
-                    <img src={props?.img} alt="productImage" onError={
+                    <img src={props?.imageUrl} alt="productImage" onError={
                         (e) => e.target = null
                     }/>
                 </div>
@@ -29,7 +32,7 @@ const ShopItem = (props) => {
                     </ul>
                 </div>
                 <div className="buy-btn-wrapper">
-                    <Button>
+                    <Button onClick={() => dispatch({type:REQUEST_ADD_CART_PRODUCT, payload: props})}>
                         Buy
                     </Button>
                 </div>

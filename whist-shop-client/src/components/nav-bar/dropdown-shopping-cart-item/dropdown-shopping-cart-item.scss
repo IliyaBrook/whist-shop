@@ -1,38 +1,54 @@
-.dropDown-cart-wrapper {
+.dropdownItemContentWrapper {
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 11rem;
-  .cart-elem-modal{
-    height: 40%;
-    div{
+  justify-content: center;
+  .dropdown-item {
+    .dropdownItemWrapper{
       display: flex;
-      padding: 0.2rem;
-      span{
-        color: black;
+      align-items: flex-end;
+      height: 60%;
+      justify-content: space-between;
+      span:nth-child(1){
+        width: 4rem;
+        margin: 0.2rem 1.5rem 0 1rem;
+        text-align: left;
       }
-      span:nth-child(1) {
-        width: 50%;
+      span:nth-child(2){
+        width: 3rem;
+        margin: 0.2rem 1rem 0 1.4rem;
+        text-align: right;
       }
-      span:nth-child(2) {
-        width: 50%;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .dropdonwTotalWrapper {
+      margin-top: 2rem;
+      display: flex;
+      span:nth-child(1){
+        width: 3rem;
+        text-align: left;
+      }
+      span:nth-child(2){
+        width: 4rem;
+        text-align: right;
       }
     }
   }
-  .total{
-    margin-top: 5rem;
+}
+.pay-button-wrapper {
+  display: flex;
+  justify-content: center;
+  .dropdown-item {
+    width: fit-content;
     display: flex;
-    align-items: flex-end;
-    height: 60%;
-    justify-content: flex-end;
-  }
-  .pay-button-wrapper{
-    display: flex;
+    cursor: pointer;
     justify-content: center;
-    .pay-button{
-      color: white;
+    background-color: white;
+    .pay-button {
+      color: white !important;
       margin-top: 2rem;
-      width: 70%;
+      width: fit-content;
     }
   }
 }

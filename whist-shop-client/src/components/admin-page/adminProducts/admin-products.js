@@ -7,10 +7,11 @@ const AdminProducts = () => {
     const { products } = useSelector(state => state.productsReducer)
 
     const RenderProducts = () => products.map(
-        product => <ProductItem key={product._id} props={{
+        (product, idx) => <ProductItem key={idx} props={{
             title:product.title,
             price:product.price,
-            id:product._id
+            id: product._id,
+            index:idx
         }}/>)
 
     return (

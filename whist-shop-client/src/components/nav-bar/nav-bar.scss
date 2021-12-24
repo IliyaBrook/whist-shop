@@ -1,10 +1,9 @@
 .navBar-selected{
-  box-shadow: yellow 0 2px 5px 3px;
+  box-shadow: yellow 0 2px 5px 1px;
 }
 
 .container {
   margin: 0 2% 0 2%;
-
   .me-auto, .navbar-nav {
     margin: 0 !important;
 
@@ -74,3 +73,4 @@
     }
   }
 }
+

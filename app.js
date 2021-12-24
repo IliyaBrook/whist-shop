@@ -17,8 +17,15 @@ if (PORT !== '3000') {
     process.env
 }
 
-app.use("/api", require('./server/routes/get-products-route'))
-app.use("/api", require('./server/routes/add-product-route'))
+require('./server/watchers/calc-statistic')()
+app.use("/api", require('./server/routes/products/get-products-route'))
+app.use("/api", require('./server/routes/products/add-product-route'))
+app.use("/api", require('./server/routes/products/edit-products-route'))
+app.use("/api", require('./server/routes/products/remove-product-route'))
+app.use("/api", require('./server/routes/cart/add-cart-route'))
+app.use("/api", require('./server/routes/cart/remove-cart-route'))
+app.use("/api", require('./server/routes/cart/get-cart-products'))
+app.use("/api", require('./server/routes/cart/cart-pay-route'))
 
 if (process.env.NODE_ENV === 'production') {
     console.log('production env')

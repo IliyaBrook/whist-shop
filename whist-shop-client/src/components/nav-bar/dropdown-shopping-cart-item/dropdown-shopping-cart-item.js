@@ -1,39 +1,50 @@
 import React from 'react';
 import {Button, Dropdown} from "react-bootstrap";
 import './dropdown-shopping-cart-item.scss'
+import {useDispatch, useSelector} from "react-redux";
+import {REQUEST_PAY} from "../../../redux/reducers/cartReducer/cartReducerTypes";
 
 const DropdownShoppingCartItem = () => {
+    const dispatch = useDispatch()
+    const { products } = useSelector(state => state.cartReducer)
+    let price = 0
+    products.forEach(p => price += p.price)
+
+    const RenderCartItems = () => products.map((product, index) => {
+        return (
+            <div className="dropdownItemWrapper" key={index}>
+                <span>{product.title}</span>
+                <span>{`${product.price}$`}</span>
+            </div>
+        )
+    })
     return (
-        <Dropdown.Item disabled={true}>
-            <div className="dropDown-cart-wrapper">
-                <div className="cart-elem-modal">
-                    <div>
-                        <span>elem 1</span>
-                        <span>10$</span>
-                    </div>
-                    <div>
-                        <span>elem 2</span>
-                        <span>50$</span>
-                    </div>
-                    <div>
-                        <span>elem 3</span>
-                        <span>70$</span>
-                    </div>
-                </div>
-                <div className="total">
+        <>
+
+            <div className="dropdownItemContentWrapper">
+                <Dropdown.Item disabled={true}>
+                    <RenderCartItems/>
+                    <div className="dropdonwTotalWrapper">
                                     <span>
                                         Total:
                                     </span>
-                    <span>
-                                        300$
+                        <span>
+                                        {`${price}$`}
                                     </span>
-                </div>
-                <div className="pay-button-wrapper">
-                    <Button className="pay-button">Pay</Button>
-                </div>
-
+                    </div>
+                </Dropdown.Item>
             </div>
-        </Dropdown.Item>
+
+            <div className="pay-button-wrapper">
+                <Dropdown.Item>
+                    <Button
+                        className="pay-button"
+                        onClick={() =>
+                            dispatch({type:REQUEST_PAY})}
+                    >Pay</Button>
+                </Dropdown.Item>
+            </div>
+        </>
     );
 };
 
